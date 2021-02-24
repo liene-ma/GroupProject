@@ -28,7 +28,16 @@ public class PubGroupProject {
                 && drinkName != 5) {
             System.out.println("No such drink");
         } else {
-            computeCost(drinkName, student, amount);
+            try {
+                computeCost(drinkName, student, amount);
+            }
+            catch (RuntimeException exception)
+            {
+                System.out.println("Error: " + exception.getMessage());
+                return;
+            }
+
+
             System.out.println("You have to pay eur:");
             System.out.println(computeCost(drinkName, student, amount));
         }
@@ -37,8 +46,8 @@ public class PubGroupProject {
     public static String computeCost(int drink, int student, int amount) {
 
         if (amount > 2 && (drink == 4 || drink == 5)) {
-            System.out.println("Too many drinks, max 2.");
-
+            throw new RuntimeException("Too many drinks, max 2.");
+//            System.out.println("Too many drinks, max 2.");
         }
 
         double price = 0;
