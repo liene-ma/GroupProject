@@ -3,7 +3,7 @@ package com.company;
 import java.util.Scanner;
 import java.text.DecimalFormat;
 
-public class PubGroupProject {
+public class Main {
 
     public static void main(String[] args) {
 
